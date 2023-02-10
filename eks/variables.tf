@@ -11,7 +11,7 @@ variable "instance_type" {
   description = "ID of the specific VPC to retrieve."
 }
 
-variable vpcname {
+variable vpc_id {
   type        = string
   default     = ""
   description = "ID of the specific VPC to retrieve."
@@ -20,7 +20,7 @@ variable vpcname {
 
 variable "privet_subnet_ids" {
   type = list(string)
-  default = []
+  default = ["10.0.12.0/24"]
   description= "List of privet subnet IDs"
 }
 
