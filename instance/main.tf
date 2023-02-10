@@ -1,16 +1,14 @@
-resource "aws_instance" "bastion" {
-  image_id      = data.aws_ami.latest_ubuntu.id
-  instance_type = var.instance_type
+provider "aws" {
+  region = "us-east-1"
 }
 
-resource "aws_network_interface" "test" {
-  subnet_id       = var.public_subnet_ids
-  private_ips     = ["10.0.0.50"]
+resource "aws_instance" "bastion" {
+  ami             = data.aws_ami.latest_ubuntu.id
+  instance_type   = var.instance_type
   security_groups = [aws_security_group.security.id]
-
-  attachment {
-    instance     = aws_instance.bsstion.id
-    device_index = 1
+  subnet_id     = var.public_subnet_ids
+  tags = {
+    Name = "bastion"
   }
 }
 

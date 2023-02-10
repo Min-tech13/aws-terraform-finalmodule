@@ -4,8 +4,8 @@ variable "instance_type" {
   description = "(Optional) Instance type to use for the instance."
 }
 variable "public_subnet_ids" {
-  type        = list(string)
-  default     = []
+  type        = string
+  default     = ""
   description = "description"
 }
 variable "vpc_id" {
