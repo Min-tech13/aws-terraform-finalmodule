@@ -4,7 +4,7 @@ output public_subnets {
   description = "outputs of public subnets id "
 }
  
-output vpc_id {
+output vpc_ids {
   value       = aws_vpc.main.id
   sensitive   = true
   description = "outputs of vpc id "
