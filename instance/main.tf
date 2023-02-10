@@ -1,4 +1,4 @@
-resource "aws_intance" "bastion"{
+resource "aws_instance" "bastion"{
      image_id           = data.aws_ami.latest_ubuntu.id
     instance_type = var.instance_type
 }

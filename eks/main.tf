@@ -61,6 +61,3 @@ resource "aws_eks_node_group" "final_node_group" {
   ]
 
 }
-
-
-
