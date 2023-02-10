@@ -4,14 +4,14 @@ output public_subnets {
   description = "outputs of public subnets id "
 }
  
-output vpc_ids {
+output vpc-id{
+  type = string
   value       = aws_vpc.main.id
-  sensitive   = true
   description = "outputs of vpc id "
 }
 
 output private_subnets {
+  type =string
   value       = aws_subnet.private_subnets.*.id
-  sensitive   = true
   description = "outputs of public subnets id "
 }
