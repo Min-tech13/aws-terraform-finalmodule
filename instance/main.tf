@@ -4,9 +4,7 @@
 #==============================================
 #  Made by Mintemir Kurbanaliev . February 2023
 
-provider "aws" {
-  region = "us-east-1"
-}
+
 
 resource "aws_instance" "bastion" {
   ami             = data.aws_ami.latest_ubuntu.id

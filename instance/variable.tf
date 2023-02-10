@@ -6,7 +6,7 @@ variable "instance_type" {
 variable "public_subnet_ids" {
   type        = string
   default     = ""
-  description = "description"
+  description = "shows subnets ids"
 }
 variable "vpc_id" {
   type        = string
@@ -16,5 +16,5 @@ variable "vpc_id" {
 variable "env" {
   type        = string
   default     = ""
-  description = "description"
+  description = "System environment name"
 }

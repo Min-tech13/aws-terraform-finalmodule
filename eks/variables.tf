@@ -28,6 +28,7 @@ variable "privet_subnet_ids" {
 variable "ingress_ports" {
   type    = list(any)
   default = [0]
+  
 }
 
 variable "egress_cidr" {
