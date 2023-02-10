@@ -2,7 +2,7 @@
 resource "aws_security_group" "security" {
   name        = "${var.env}-security"
   description = "Allow TLS inbound traffic"
-   vpc_id      = var.vpc_id
+  vpc_id      = var.vpc_id
 
   ingress {
     from_port   = 22
@@ -10,7 +10,7 @@ resource "aws_security_group" "security" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-   ingress {
+  ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
