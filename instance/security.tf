@@ -1,5 +1,5 @@
 //SECURITY_GROUP
-resource "aws_security_group" "r-security" {
+resource "aws_security_group" "security" {
   name        = "${var.env}-security"
   description = "Allow TLS inbound traffic"
    vpc_id      = var.vpc_id

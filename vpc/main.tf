@@ -4,7 +4,7 @@
 # Public Subnets with configured Route Tables (IGW)
 # Private Subnets with configured Route Tables (NAT-GW)
 #==============================================
-#  Made by Mintemir Kurbanaliev . February 2022
+#  Made by Mintemir Kurbanaliev . February 2023
 #
 #
 #---------------- VPC----Gateway-----------------------
@@ -15,6 +15,7 @@ resource "aws_vpc" "main" {
   cidr_block = var.vpc_cidr
   tags = {
     Name = "${var.env}-vpc"
+    environment = "${var.env}"
   }
 }
 
@@ -27,13 +28,15 @@ resource "aws_internet_gateway" "main" {
 
 #-------------Public Subnets and Routing----------------------------------------
 resource "aws_subnet" "public_subnets" {
-  count                   = length(var.subnet_cidrs)
+  count                   = length(var.public_subnet_cidrs)
   vpc_id                  = aws_vpc.main.id
   cidr_block              = element(var.subnet_cidrs, count.index)
   availability_zone       = data.aws_availability_zones.available.names[count.index]
   map_public_ip_on_launch = true
   tags = {
     Name = "${var.env}-public-${count.index + 1}"
+    "kubernetes.io/role/elb" = "1"
+    environment = "${var.env}"
   }
 }
 
@@ -46,6 +49,7 @@ resource "aws_route_table" "public_subnets" {
   }
   tags = {
     Name = "${var.env}-route-public-subnets"
+    environment = "${var.env}"
   }
 }
 
@@ -65,6 +69,7 @@ resource "aws_eip" "nat" {
   vpc   = true
   tags = {
     Name = "${var.env}-nat-gw-${count.index + 1}"
+    environment = "${var.env}"
   }
 }
 
@@ -75,6 +80,7 @@ resource "aws_nat_gateway" "nat" {
   subnet_id     = element(aws_subnet.public_subnets[*].id, count.index)
   tags = {
     Name = "${var.env}-nat-gw-${count.index + 1}"
+    environment = "${var.env}"
   }
 }
 
@@ -88,6 +94,7 @@ resource "aws_subnet" "private_subnets" {
   availability_zone = data.aws_availability_zones.available.names[count.index]
   tags = {
     Name = "${var.env}-private-${count.index + 1}"
+    environment = "${var.env}"
   }
 }
 
@@ -100,6 +107,7 @@ resource "aws_route_table" "private_subnets" {
   }
   tags = {
     Name = "${var.env}-route-private-subnet-${count.index + 1}"
+    environment = "${var.env}"
   }
 }
 

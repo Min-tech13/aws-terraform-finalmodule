@@ -3,12 +3,17 @@ variable "instance_type"{
     default = "t2.micro"
     description = "(Optional) Instance type to use for the instance."
 }
-variable Public_subnet_ids {
+variable public_subnet_ids {
+  type        = list(string)
+  default     = []
+  description = "description"
+}
+variable vpc_id {
   type        = string
   default     = ""
   description = "description"
 }
-variable vpc_id {
+variable env {
   type        = string
   default     = ""
   description = "description"
