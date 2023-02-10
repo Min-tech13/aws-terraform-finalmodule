@@ -4,7 +4,7 @@ output public_subnets {
   description = "outputs of public subnets id "
 }
  
-output vpc {
+output vpc_id_name {
   type = string
   value       = aws_vpc.main.id
   description = "outputs of vpc id "
