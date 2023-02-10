@@ -55,8 +55,9 @@ resource "aws_route_table_association" "public_routes" {
   subnet_id      = element(aws_subnet.public_subnets[*].id, count.index)
 }
 
-
-#-----NAT Gateways with Elastic IPs--------------------------
+#============================================================#
+#--------------NAT Gateways with Elastic IPs-----------------#
+#============================================================#
 
 
 resource "aws_eip" "nat" {
@@ -109,3 +110,7 @@ resource "aws_route_table_association" "private_routes" {
 }
 
 #==============================================================
+
+
+
+
