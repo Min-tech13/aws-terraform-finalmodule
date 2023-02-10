@@ -11,7 +11,7 @@ output vpc_id {
 }
 
 output private_subnets {
-  value       = aws_subnet.private_subnets.id
+  value       = aws_subnet.private_subnets.*.id
   sensitive   = true
   description = "outputs of public subnets id "
 }
