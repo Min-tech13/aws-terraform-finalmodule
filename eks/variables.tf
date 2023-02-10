@@ -11,7 +11,7 @@ variable "instance_type" {
   description = "ID of the specific VPC to retrieve."
 }
 
-variable vpc-id {
+variable vpcname {
   type        = string
   default     = ""
   description = "ID of the specific VPC to retrieve."

@@ -2,7 +2,7 @@
 resource "aws_security_group" "eks_cluster" {
   name        = "${var.env}-cluster-sg"
   description = "Cluster communication with worker nodes"
-  vpc_id      = var.vpc_ids
+  vpc_id      = var.vpcname
 
   tags = {
     Name = "${var.env}-cluster-sg"
