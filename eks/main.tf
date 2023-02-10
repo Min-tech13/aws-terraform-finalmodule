@@ -1,5 +1,9 @@
 
-
+#==========final project child root============
+#
+# eks cluster with node groups and lauch template
+#==============================================
+#  Made by Mintemir Kurbanaliev . February 2023
 
 
 

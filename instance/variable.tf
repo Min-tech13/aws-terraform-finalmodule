@@ -11,7 +11,7 @@ variable "public_subnet_ids" {
 variable "vpc_id" {
   type        = string
   default     = ""
-  description = "description"
+  description = " ID of the specific VPC to retrieve"
 }
 variable "env" {
   type        = string

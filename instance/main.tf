@@ -1,3 +1,9 @@
+#==========final project child root============
+#
+# here configured bastion 
+#==============================================
+#  Made by Mintemir Kurbanaliev . February 2023
+
 provider "aws" {
   region = "us-east-1"
 }
@@ -8,7 +14,7 @@ resource "aws_instance" "bastion" {
   security_groups = [aws_security_group.security.id]
   subnet_id     = var.public_subnet_ids
   tags = {
-    Name = "bastion"
+    Name = "${var.env}-bastion"
   }
 }
 
