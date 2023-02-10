@@ -6,9 +6,9 @@ variable "env" {
   default = "dev"
 }
 
-variable "public_subnet_cidrs" {
+variable "subnet_cidrs" {
   type = list(string)
-  default = []
+  default = ["10.0.3.0/24"]
 }
 variable "private_subnet_cidrs" {
   default = [
