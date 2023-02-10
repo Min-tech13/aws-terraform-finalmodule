@@ -5,6 +5,15 @@
 #  Made by Mintemir Kurbanaliev . February 2023
 
 
+#############################
+##                         ##
+## using conditon number 2 ##
+##                         ##
+#############################
+
+  variable "use_bastion" {
+  default = true
+}
 
 resource "aws_instance" "bastion" {
   ami             = data.aws_ami.latest_ubuntu.id
@@ -14,6 +23,7 @@ resource "aws_instance" "bastion" {
   tags = {
     Name = "${var.env}-bastion"
   }
+    condition = var.use_bastion
 }
 
 

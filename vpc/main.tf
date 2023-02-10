@@ -27,8 +27,17 @@ resource "aws_internet_gateway" "main" {
 }
 
 #-------------Public Subnets and Routing----------------------------------------
+#############################
+##                         ##
+## using conditon number 1 ##
+##                         ##
+#############################
+
+variable "create_public_subnets" {
+  default = true
+}
 resource "aws_subnet" "public_subnets" {
-  count                   = length(var.subnet_cidrs)
+  count                   = var.create_public_subnets ? length(var.subnet_cidrs) : 0
   vpc_id                  = aws_vpc.main.id
   cidr_block              = element(var.subnet_cidrs, count.index)
   availability_zone       = data.aws_availability_zones.available.names[count.index]
