@@ -15,7 +15,7 @@
 resource "aws_eks_cluster" "final-cluster" {
   name     = "${var.env}-eks"
   role_arn = aws_iam_role.cluster_role.arn
-  version  = "1.24"
+  version  = "1.25"
 
   vpc_config {
     subnet_ids = var.privet_subnet_ids
