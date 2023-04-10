@@ -7,7 +7,7 @@ variable "env" {
 
 variable "instance_type" {
   type    = string
-  default = "t2.large"
+  default = "t2.medium"
   description = "ID of the specific VPC to retrieve."
 }
 
